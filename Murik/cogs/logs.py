@@ -43,4 +43,4 @@ async def on_member_remove(member):
                 await webhook.send(embed=embed)  # Отправляем embed
 
 # Запуск бота
-bot.run('Njc4OTI0ODQ1OTU3Nzc1MzYw.GWO2sN.a7kGZS-AQYfEN8PMp9f3nhyWq-cz4XZYnkrBL8')
+bot.run('')
