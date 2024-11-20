@@ -11,7 +11,7 @@ intents.message_content = True  # Для получения контента с�
 bot = commands.Bot(command_prefix='!', intents=intents)
 
 # Токен вашего бота
-TOKEN = 'Njc4OTI0ODQ1OTU3Nzc1MzYw.GWO2sN.a7kGZS-AQYfEN8PMp9f3nhyWq-cz4XZYnkrBL8'
+TOKEN = ''
 
 # Загружаем cogs
 async def load_cogs():
@@ -96,9 +96,9 @@ async def on_command_error(ctx, error):
 
 
 # Запускаем бота
-client.run('Njc4OTI0ODQ1OTU3Nzc1MzYw.GWO2sN.a7kGZS-AQYfEN8PMp9f3nhyWq-cz4XZYnkrBL8')
+client.run('')
 
 # Запуск бота
-bot.run('Njc4OTI0ODQ1OTU3Nzc1MzYw.GWO2sN.a7kGZS-AQYfEN8PMp9f3nhyWq-cz4XZYnkrBL8')
+bot.run('')
 
 
