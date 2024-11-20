@@ -14,12 +14,17 @@ bot = commands.Bot(command_prefix='!', intents=intents)
 TOKEN = 'Njc4OTI0ODQ1OTU3Nzc1MzYw.GWO2sN.a7kGZS-AQYfEN8PMp9f3nhyWq-cz4XZYnkrBL8'
 
 # Загружаем cogs
-try:
-    bot.load_extension("cogs.moderation")  # Указываем путь к вашему cogs
-    print("Cog успешно загружен!")
-except Exception as e:
-    print(f"Ошибка при загрузке cog: {e}")
-    
+async def load_cogs():
+    try:
+        await bot.load_extension("cogs.moderation")  # Указываем путь к вашему cogs
+        print("Cog успешно загружен!")
+    except Exception as e:
+        print(f"Ошибка при загрузке cog: {e}")
+
+@bot.event
+async def on_ready():
+    print(f'Logged in as {bot.user}')
+    await load_cogs()
 # Событие, которое срабатывает, когда новый пользователь присоединяется
 @bot.event
 async def on_member_join(member):
@@ -60,6 +65,7 @@ async def send_message():
             except discord.errors.NotFound:
                 # Сообщение уже удалено или недоступно
                 pass
+            
 
         # Отправляем новое сообщение
         last_message = await channel.send(TAG + '''
@@ -68,6 +74,7 @@ async def send_message():
 
 Не забудь выполнить все шаги в процессе верификации, чтобы получить доступ ко всем каналам! 🔑
 ''')
+
         
         # Ждем 1 час перед следующей отправкой
         await asyncio.sleep(3600)  # Спим 1 час (3600 секунд)
@@ -86,7 +93,8 @@ async def on_command_error(ctx, error):
     else:
         await ctx.send(f"Произошла ошибка: {error}")
         print(f"Произошла ошибка: {error}")# ID канала, в который нужно отправлять сообщения
-    
+
+
 # Запускаем бота
 client.run('Njc4OTI0ODQ1OTU3Nzc1MzYw.GWO2sN.a7kGZS-AQYfEN8PMp9f3nhyWq-cz4XZYnkrBL8')
 
